@@ -14,18 +14,31 @@ int main()
         return 0;
     }
 
-    for (int i = 2; i < n; i++)
+    int i = 2;
+
+    while (i < n)
     {
-        if (n % i != 0)
-        {
-            cout << "Prime";
-            return 0;
-        }
-        else
+        if (n % i == 0)
         {
             cout << "Not Prime";
             return 0;
         }
+        i++;
     }
+    cout << "Prime";
+
+    // for (; i < n; i++)
+    // {
+    //     if (n % i != 0)
+    //     {
+    //         cout << "Prime";
+    //         return 0;
+    //     }
+    //     else
+    //     {
+    //         cout << "Not Prime";
+    //         return 0;
+    //     }
+    // }
     return 0;
 }
