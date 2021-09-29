@@ -8,7 +8,7 @@ int subtractProductAndSum(int n)
 
     int sum = 0;
     int prod = 1;
-    int temp = n;
+    int temp = n; // made temp for storing n to use in prod while loop
     while (n > 0)
     {
         sum += (n % 10);
