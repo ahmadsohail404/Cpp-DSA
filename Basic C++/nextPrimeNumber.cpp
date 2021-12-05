@@ -1,4 +1,4 @@
-//Code by Sohail :)
+// Code by Sohail :)
 #include <bits/stdc++.h>
 using namespace std;
 
