@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// Time Complexitiy = O(a*b - max(a,b))
+
 int lcm(int a, int b)
 {
     int res = max(a, b);
