@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.ejs": "html",
+    "memory": "c",
+    "regex": "c",
+    "utility": "c"
+  }
+}
