@@ -7,21 +7,23 @@ struct Node
     struct Node *next, *prev;
 } * head, *second, *third;
 
-struct Node *reverse(struct Node *head)
+struct Node *deleteHead(struct Node *head)
 {
-    if (head == NULL || head->next == NULL)
-        return head;
-
-    struct Node *prev, *curr = head;
-
-    while (curr != NULL)
+    if (head == NULL)
+        return NULL;
+    if (head->next == NULL)
     {
-        prev = curr->prev;
-        curr->prev = curr->next;
-        curr->next = prev;
-        curr = curr->prev;
+        free(head);
+        return NULL;
     }
-    return prev->prev;
+    else
+    {
+        struct Node *temp = head;
+        head = head->next;
+        head->prev = NULL;
+        free(temp);
+        return head;
+    }
 }
 
 int main()
