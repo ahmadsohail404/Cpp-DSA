@@ -3,6 +3,7 @@
     "*.ejs": "html",
     "memory": "c",
     "regex": "c",
-    "utility": "c"
+    "utility": "c",
+    "list": "c"
   }
 }

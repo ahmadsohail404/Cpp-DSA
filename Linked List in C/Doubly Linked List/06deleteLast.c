@@ -5,9 +5,9 @@ struct Node
 {
     int data;
     struct Node *next, *prev;
-} * head, *second, *third;
+} * head, *second, *tail;
 
-struct Node *deleteDLL(struct Node *head)
+struct Node *deleteTail(struct Node *head)
 {
     if (head == NULL)
         return NULL;
@@ -18,10 +18,12 @@ struct Node *deleteDLL(struct Node *head)
     }
     else
     {
-        struct Node *temp = head;
-        head = head->next;
-        head->prev = NULL;
-        free(temp);
+        struct Node *curr = head;
+        while (curr->next != NULL)
+            curr = curr->next;
+
+        curr->prev->next = NULL;
+        free(curr);
         return head;
     }
 }
@@ -30,19 +32,19 @@ int main()
 {
     head = (struct Node *)malloc(sizeof(struct Node));
     second = (struct Node *)malloc(sizeof(struct Node));
-    third = (struct Node *)malloc(sizeof(struct Node));
+    tail = (struct Node *)malloc(sizeof(struct Node));
 
     head->data = 10;
     head->next = second;
     head->prev = NULL;
 
     second->data = 20;
-    second->next = third;
+    second->next = tail;
     second->prev = head;
 
-    third->data = 30;
-    third->prev = second;
-    third->next = NULL;
+    tail->data = 30;
+    tail->prev = second;
+    tail->next = NULL;
 
     return 0;
 }
