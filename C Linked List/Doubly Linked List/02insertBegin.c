@@ -8,24 +8,32 @@ struct Node
     struct Node *next;
 } * head, *second, *third;
 
-struct Node *insertBeg(struct Node *head)
+void printList(struct Node *head)
+{
+    struct Node *curr = head;
+    while (curr != NULL)
+    {
+        printf("%d ", curr->data);
+        curr = curr->next;
+    }
+}
+
+struct Node *insertBeg(struct Node *head, int x)
 {
     struct Node *new_node = malloc(sizeof(struct Node));
-    new_node->data = 5;
-
-    new_node->next = head;
     if (head != NULL)
     {
         head->prev = new_node;
     }
+
+    new_node->data = x;
+    new_node->next = head;
+
     return new_node;
 }
 
 int main()
 {
-    head = NULL;
-    second = NULL;
-    third = NULL;
 
     head = (struct Node *)malloc(sizeof(struct Node));
     second = (struct Node *)malloc(sizeof(struct Node));
@@ -42,6 +50,13 @@ int main()
     third->data = 30;
     third->prev = second;
     third->next = NULL;
+
+    printf("Before insertion: ");
+    printList(head);
+    printf("\n");
+    printf("After insertion : ");
+    head = insertBeg(head, 40);
+    printList(head);
 
     return 0;
 }

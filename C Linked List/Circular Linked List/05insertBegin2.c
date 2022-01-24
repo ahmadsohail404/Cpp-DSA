@@ -7,21 +7,25 @@ struct Node
     struct Node *next;
 } * head, *second, *third;
 
+// inserting next to head and swapping data making it O(1).
 struct Node *insertBegin(struct Node *head, int x)
 {
     struct Node *temp = malloc(sizeof(struct Node));
     temp->data = x;
     if (head == NULL)
+    {
         temp->next = temp;
+        return temp;
+    }
     else
     {
-        struct Node *curr = head;
-        while (curr->next != head)
-            curr = curr->next;
-        curr->next = temp;
-        temp->next = head;
+        temp->next = head->next;
+        head->next = temp;
+        int t = head->data;
+        head->data = temp->data;
+        temp->data = t;
+        return head;
     }
-    return temp;
 }
 
 void printList(struct Node *head)
