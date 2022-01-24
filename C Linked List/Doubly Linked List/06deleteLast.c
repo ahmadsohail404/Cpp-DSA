@@ -7,9 +7,9 @@ struct Node
     struct Node *next, *prev;
 } * head, *second, *tail;
 
-struct Node *deleteTail(struct Node *head)
+struct Node *deleteLast(struct Node *head)
 {
-    if (head == NULL)
+    if (head == NULL) // corner cases
         return NULL;
     if (head->next == NULL)
     {
@@ -19,15 +19,13 @@ struct Node *deleteTail(struct Node *head)
     else
     {
         struct Node *curr = head;
-        while (curr->next != NULL)
+        while (curr != NULL)
             curr = curr->next;
-
         curr->prev->next = NULL;
         free(curr);
         return head;
     }
 }
-
 int main()
 {
     head = (struct Node *)malloc(sizeof(struct Node));
