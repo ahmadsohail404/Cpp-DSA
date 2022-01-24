@@ -5,16 +5,25 @@ struct Node
 {
     int data;
     struct Node *next;
-} * head, *second, *third, *fourth;
+} * head, *second, *third;
+
+// Method 1:-
+void printList(struct Node *head)
+{
+    if (head == NULL)
+        return;
+    printf("%d ", head->data);
+
+    for (struct Node *p = head->next; p != head; p = p->next)
+        printf("%d ", p->data);
+}
 
 int main()
 {
     head = (struct Node *)malloc(sizeof(struct Node));
     second = (struct Node *)malloc(sizeof(struct Node));
     third = (struct Node *)malloc(sizeof(struct Node));
-    fourth = (struct Node *)malloc(sizeof(struct Node));
 
-    // single node circular linked list :  head->next = head
     head->data = 10;
     head->next = second;
 
@@ -22,10 +31,9 @@ int main()
     second->next = third;
 
     third->data = 20;
-    third->next = fourth;
+    third->next = head;
 
-    fourth->data = 15;
-    fourth->next = head;
+    printList(head);
 
     return 0;
 }
