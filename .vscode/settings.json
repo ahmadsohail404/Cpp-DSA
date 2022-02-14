@@ -6,6 +6,7 @@
     "utility": "c",
     "list": "c",
     "12-DLL.C": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "algorithm": "cpp"
   }
 }
