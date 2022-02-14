@@ -6,28 +6,15 @@ struct Node
     int data;
     struct Node *prev;
     struct Node *next;
-} * head, *second, *third;
-
-struct Node *insertEnd(struct Node *head, int x)
-{
-    struct Node *temp = (struct Node *)malloc(sizeof(struct Node));
-    temp->data = x;
-    struct Node *curr = head;
-
-    if (head == NULL)
-        return temp;
-
-    while (curr->next != NULL)
-        curr = curr->next;
-
-    curr->next = temp;
-    temp->prev = curr;
-
-    return head;
-}
+};
 
 int main()
 {
+    int number_of_nodes;
+
+    struct Node *head;
+    struct Node *second;
+    struct Node *third;
 
     head = (struct Node *)malloc(sizeof(struct Node));
     second = (struct Node *)malloc(sizeof(struct Node));
@@ -44,8 +31,6 @@ int main()
     third->data = 30;
     third->prev = second;
     third->next = NULL;
-
-    head = insertEnd(head, 10);
 
     return 0;
 }

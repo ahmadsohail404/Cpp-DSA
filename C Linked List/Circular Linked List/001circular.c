@@ -9,15 +9,15 @@ struct Node
 
 struct Node *insertNode(struct Node *head, int count)
 {
-    struct Node *curr = (struct Node *)malloc(sizeof(struct Node));
+    struct Node *curr = malloc(sizeof(struct Node));
     curr = NULL;
 
     while (count > 0)
     {
+
         int val;
         scanf("%d", &val);
-
-        struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
+        struct Node *newnode = malloc(sizeof(struct Node));
         newnode->data = val;
 
         if (head == NULL)
@@ -30,41 +30,33 @@ struct Node *insertNode(struct Node *head, int count)
             curr->next = newnode;
             curr = newnode;
         }
-
         count--;
     }
-
     curr->next = head;
-
     return head;
 }
 
 void printList(struct Node *head)
 {
-    struct Node *p = head;
+    if (head == NULL)
+        return;
 
-    while (p->next != head)
+    struct Node *p = head;
+    do
     {
-        printf("Data : %d\n", p->data);
+        printf("Node : %d\n", p->data);
         p = p->next;
-    }
-    printf("Last Data : %d\n", p->data);
+    } while (p != head);
 }
 
 int main()
 {
     int n;
     scanf("%d", &n);
-
-    struct Node *head = (struct Node *)malloc(sizeof(struct Node));
-    // struct Node *curr = (struct Node *)malloc(sizeof(struct Node));
-
+    struct Node *head = malloc(sizeof(struct Node));
     head = NULL;
-    // curr = NULL;
 
     head = insertNode(head, n);
-
-    // curr->next = head;
     printList(head);
 
     return 0;

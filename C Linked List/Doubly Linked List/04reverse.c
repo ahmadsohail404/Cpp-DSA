@@ -6,13 +6,15 @@ struct Node
     int data;
     struct Node *next, *prev;
 } * head, *second, *third;
+typedef struct Node *NODE;
 
-struct Node *reverse(struct Node *head)
+NODE reverse(NODE head)
 {
     if (head == NULL || head->next == NULL)
         return head;
 
-    struct Node *prev, *curr = head;
+    NODE prev = head;
+    NODE curr = head;
 
     while (curr != NULL)
     {
@@ -24,11 +26,21 @@ struct Node *reverse(struct Node *head)
     return prev->prev;
 }
 
+void printList(NODE head)
+{
+    NODE p = head;
+    while (p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->next;
+    }
+}
+
 int main()
 {
-    head = (struct Node *)malloc(sizeof(struct Node));
-    second = (struct Node *)malloc(sizeof(struct Node));
-    third = (struct Node *)malloc(sizeof(struct Node));
+    head = (NODE)malloc(sizeof(struct Node));
+    second = (NODE)malloc(sizeof(struct Node));
+    third = (NODE)malloc(sizeof(struct Node));
 
     head->data = 10;
     head->next = second;
@@ -41,6 +53,9 @@ int main()
     third->data = 30;
     third->prev = second;
     third->next = NULL;
+
+    head = reverse(head);
+    printList(head);
 
     return 0;
 }

@@ -4,6 +4,8 @@
     "memory": "c",
     "regex": "c",
     "utility": "c",
-    "list": "c"
+    "list": "c",
+    "12-DLL.C": "cpp",
+    "iostream": "cpp"
   }
 }
