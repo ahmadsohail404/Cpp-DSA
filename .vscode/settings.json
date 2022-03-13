@@ -7,6 +7,12 @@
     "list": "c",
     "12-DLL.C": "cpp",
     "iostream": "cpp",
-    "algorithm": "cpp"
+    "algorithm": "cpp",
+    "iomanip": "cpp",
+    "array": "cpp",
+    "__node_handle": "cpp",
+    "queue": "cpp",
+    "stack": "cpp",
+    "random": "cpp"
   }
 }
