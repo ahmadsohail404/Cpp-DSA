@@ -28,9 +28,7 @@ void printList(struct Node *head)
 {
     if (head == NULL)
         return;
-
     struct Node *p = head;
-
     do
     {
         printf("%d ", p->data);

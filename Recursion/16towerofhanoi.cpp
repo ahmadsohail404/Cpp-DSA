@@ -13,7 +13,7 @@ void TOH(int n, char from, char to, char aux)
 int main()
 {
     int n;
-    cin >> n;
+    scanf("%d", &n);
     char a, b, c;
 
     TOH(n, 'A', 'C', 'B');

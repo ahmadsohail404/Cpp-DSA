@@ -21,9 +21,8 @@ struct Node *insertBegin(struct Node *head, int x)
     {
         temp->next = head->next;
         head->next = temp;
-        int t = head->data;
         head->data = temp->data;
-        temp->data = t;
+        temp->data = head->data;
         return head;
     }
 }

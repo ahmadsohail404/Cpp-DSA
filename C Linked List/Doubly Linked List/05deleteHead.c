@@ -33,12 +33,12 @@ int main()
     third = (struct Node *)malloc(sizeof(struct Node));
 
     head->data = 10;
-    head->next = second;
     head->prev = NULL;
+    head->next = second;
 
     second->data = 20;
-    second->next = third;
     second->prev = head;
+    second->next = third;
 
     third->data = 30;
     third->prev = second;
